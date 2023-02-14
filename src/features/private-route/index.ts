@@ -1,0 +1,1 @@
+export { default as ProvateRoute } from "./private-route";
