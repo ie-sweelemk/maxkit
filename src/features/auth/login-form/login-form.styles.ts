@@ -1,1 +1,24 @@
 import styled from "styled-components";
+
+export const LoginFormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+export const LogoContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: ${({ theme }) => theme.spacing.xxl};
+`;
+
+export const TitleContainer = styled.div`
+  text-align: center;
+  margin-bottom: ${({ theme }) => theme.spacing.xxl};
+
+  .title {
+    font-weight: 900;
+    margin-bottom: ${({ theme }) => theme.spacing.s};
+  }
+  .subtitle {
+    color: ${({ theme }) => theme.colors.dark_grey};
+  }
+`;

@@ -1,5 +1,8 @@
+const $primary = "#573BFF";
+const $primary_hover = "#462fcc";
 const colors = {
-  primary: "#573BFF",
+  primary: $primary,
+  primary_hover: $primary_hover,
 
   neutral_bg: "#F7F8FA",
 

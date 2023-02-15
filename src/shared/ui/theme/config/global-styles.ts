@@ -28,7 +28,44 @@ html, body {
 }
 
 .link {
-  font-size: ${({ theme }) => theme.font.fontSize.xs};
   color: ${({ theme }) => theme.colors.primary};
+  text-decoration: none;
+  outline: none;
+  font-weight: 700;
+
+  &:hover, &:active {
+    color: ${({ theme }) => theme.colors.primary_hover};
+  }
 }
+
+.typography {
+  font-size: ${({ theme }) => theme.font.fontSize.base};
+}
+
+// title 42, 32, 24, 16, 14, 12
+
+h1.typography {
+  font-size: ${({ theme }) => theme.font.fontSize.xxxl};
+}
+
+h2.typography {
+  font-size: ${({ theme }) => theme.font.fontSize.xxl};
+}
+
+h3.typography {
+  font-size: ${({ theme }) => theme.font.fontSize.xl};
+}
+
+h4.typography {
+  font-size: ${({ theme }) => theme.font.fontSize.lg};
+}
+
+h5.typography {
+  font-size: ${({ theme }) => theme.font.fontSize.base};
+}
+
+h6.typography {
+  font-size: ${({ theme }) => theme.font.fontSize.sm};
+}
+
 `;
