@@ -1,15 +1,39 @@
-import PrivateRoute from "features/private-route/private-route";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Outlet } from "react-router-dom";
+import { PrivateRoute } from "features/private-route";
+import { SplashScreen } from "shared/ui";
+import { useStateSelector } from "features/store";
 import { Dashboard } from "./dashboard";
-import { Login } from "./login";
+import { Signin } from "./signin";
+import { Signup } from "./signup";
+import { isAppLoading } from "features/auth-provider/model";
 
 export const Routing = () => {
+  const appLoading = useStateSelector(isAppLoading);
+
   return (
-    <Routes>
-      <Route element={<PrivateRoute />}>
-        <Route path="/" element={<Dashboard />} />
-      </Route>
-      <Route path="/login" element={<Login />} />
-    </Routes>
+    <>
+      {appLoading ? (
+        <SplashScreen />
+      ) : (
+        <Routes>
+          <Route element={<PrivateRoute />}>
+            <Route
+              element={
+                <div>
+                  <div>Sidebar</div>
+                  <div>
+                    <Outlet />
+                  </div>
+                </div>
+              }
+            >
+              <Route path="/" element={<Dashboard />} />
+            </Route>
+          </Route>
+          <Route path="/login" element={<Signin />} />
+          <Route path="/register" element={<Signup />} />
+        </Routes>
+      )}
+    </>
   );
 };

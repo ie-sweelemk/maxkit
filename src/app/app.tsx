@@ -1,12 +1,8 @@
 import { Routing } from "pages";
-import AppProviders from "./providers/with-providers";
+import { withProviders } from "./providers";
 
 const App = () => {
-  return (
-    <AppProviders>
-      <Routing />
-    </AppProviders>
-  );
+  return <Routing />;
 };
 
-export default App;
+export default withProviders(App);

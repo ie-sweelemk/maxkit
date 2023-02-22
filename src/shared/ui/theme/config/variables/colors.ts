@@ -1,5 +1,10 @@
+const $primary = "#573BFF";
+const $primary_hover = "#684fff";
 const colors = {
-  primary: "#573BFF",
+  primary: $primary,
+  primary_hover: $primary_hover,
+
+  primary90: "#f5f3ff",
 
   neutral_bg: "#F7F8FA",
 
@@ -8,10 +13,17 @@ const colors = {
   grey: "#CED0D8",
   soft_grey: "#F0F0F2",
   light_grey: "#F7F7F7",
+  neutral_grey: "#CED0D8",
 
   green: "#00C222",
+  green_bg: "#E6F9E9",
+  green_hover: "#008818",
   yellow: "#FFAA37",
+  yellow_bg: "#FFF7EB",
+  yellow_hover: "#B37727",
   red: "#F74B59",
+  red_bg: "#FEEDEE",
+  red_hover: "#de4450",
 
   white: "#ffffff",
 
