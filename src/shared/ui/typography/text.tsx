@@ -1,7 +1,7 @@
 import { HTMLAttributes } from "react";
 import cn from "classnames";
 type TextOwnProps = {
-  children: string;
+  children: React.ReactNode;
 };
 
 type TextProps = TextOwnProps &

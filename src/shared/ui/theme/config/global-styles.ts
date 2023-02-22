@@ -27,6 +27,19 @@ html, body {
   box-sizing: border-box;
 }
 
+#root {
+  width: 100%;
+  height: 100vh;
+}
+
+.typography {
+  font-size: ${({ theme }) => theme.font.fontSize.base};
+}
+
+:where(.link).typography {
+  font-size: ${({ theme }) => theme.font.fontSize.xs};
+}
+
 .link {
   color: ${({ theme }) => theme.colors.primary};
   text-decoration: none;
@@ -36,10 +49,6 @@ html, body {
   &:hover, &:active {
     color: ${({ theme }) => theme.colors.primary_hover};
   }
-}
-
-.typography {
-  font-size: ${({ theme }) => theme.font.fontSize.base};
 }
 
 // title 42, 32, 24, 16, 14, 12

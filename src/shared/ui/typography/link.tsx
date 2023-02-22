@@ -1,14 +1,7 @@
-import { AnchorHTMLAttributes } from "react";
+import { Link as RouterLink, LinkProps } from "react-router-dom";
 import cn from "classnames";
 
-type AnchorOwnProps = {
-  children: string;
-};
-
-type AnchorProps = AnchorOwnProps &
-  Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof AnchorOwnProps>;
-
-const Link: React.FC<AnchorProps> = ({children, className, rel, ...restProps}) => {
+const Link: React.FC<LinkProps> = ({children, className, rel, ...restProps}) => {
   const classNames = cn("typography link", className);
   const mergedProps = {
     ...restProps,
@@ -16,7 +9,7 @@ const Link: React.FC<AnchorProps> = ({children, className, rel, ...restProps}) =
   };
 
   return (
-    <a className={classNames} {...mergedProps}>{children}</a>
+    <RouterLink className={classNames} {...mergedProps}>{children}</RouterLink>
   )
 }
 export default Link;

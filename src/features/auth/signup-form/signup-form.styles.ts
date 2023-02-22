@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const LoginFormContainer = styled.div`
+export const SignupFormContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
@@ -20,5 +20,8 @@ export const TitleContainer = styled.div`
   }
   .subtitle {
     color: ${({ theme }) => theme.colors.dark_grey};
+    font-size: ${({ theme }) => theme.font.fontSize.xs};
   }
 `;
+
+export const NewUserContainer = styled.div``

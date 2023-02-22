@@ -1,1 +1,1 @@
-export { default as ProvateRoute } from "./private-route";
+export { default as PrivateRoute } from "./private-route";
