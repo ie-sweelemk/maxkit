@@ -26,6 +26,7 @@ const colors = {
   red_hover: "#de4450",
 
   white: "#ffffff",
+  natural_black: "#30373D",
 
   shadow: '0px 40px 100px rgba(68, 68, 79, 0.1)',
 };

@@ -15,7 +15,7 @@ export const TitleContainer = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing.xxl};
 
   .title {
-    font-weight: 900;
+    font-weight: 700;
     margin-bottom: ${({ theme }) => theme.spacing.s};
   }
   .subtitle {

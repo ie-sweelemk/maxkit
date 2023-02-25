@@ -23,13 +23,15 @@ const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
           email: session.user.email!,
         });
         navigate("/");
-        dispatch(getProfile(session.user.id));
+        dispatch(getProfile(session.user.id)).unwrap().finally(() => {
+          app.changeLoadingStatus(false);
+        });
+      } else {
+        app.changeLoadingStatus(false);
       }
-      app.changeLoadingStatus(false);
     });
 
     supabase.auth.onAuthStateChange((_event, session) => {
-      console.log(_event);
       // console.log(session);
     });
   }, []);

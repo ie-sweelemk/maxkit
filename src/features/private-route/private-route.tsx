@@ -5,7 +5,7 @@ import { isAuthenticated } from "./model";
 const PrivateRoute: React.FC = () => {
   const location = useLocation();
   const auth = useStateSelector(isAuthenticated);
-  console.log(auth);
+
   return auth ? (
     <Outlet />
   ) : (

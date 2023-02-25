@@ -8,12 +8,13 @@ import {
   NewUserContainer,
 } from "./signup-form.styles";
 import { FormField } from "shared/ui/styled-components";
-import { signUp } from "../api";
 import { authRegister } from "../model";
-import { useAppDispatch } from "features/store";
+import { useActionCreators, useAppDispatch } from "features/store";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import { getProfile } from "shared/api/model/profile";
+import { appActions } from "features/auth-provider/model";
+import { routes } from "shared/constants";
 
 const { Text, Title, Link } = Typography;
 
@@ -42,6 +43,7 @@ const formInitialValues: formState = {
 const SignupForm: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const dispatch = useAppDispatch();
+  const app = useActionCreators(appActions);
   const navigate = useNavigate();
   const onHandleSubmit = async (e: formState) => {
     setLoading(true);
@@ -53,8 +55,9 @@ const SignupForm: React.FC = () => {
     dispatch(authRegister(user))
       .unwrap()
       .then((response) => {
-        navigate("/");
-        response && dispatch(getProfile(response.id))
+        response && dispatch(getProfile(response.id)).unwrap().finally(() => {
+          navigate(routes.dashboard);
+        })
       })
       .catch((error) => {
         console.log(error.message);
@@ -75,7 +78,7 @@ const SignupForm: React.FC = () => {
           </Title>
           <NewUserContainer>
             <Text className="subtitle">
-              Already have an account? <Link to="/login">Login</Link>
+              Already have an account? <Link to={routes.login}>Login</Link>
             </Text>
           </NewUserContainer>
         </TitleContainer>

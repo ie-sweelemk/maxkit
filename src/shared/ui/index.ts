@@ -5,6 +5,7 @@ export * from "./logo";
 export * from "./typography";
 export * from "./input";
 export * from "./button";
-export * from "./icons";
+export { default as Icon } from "./icons";
 export * from "./loader";
 export * from "./splash-screen";
+export * from "./sidebar-link";
