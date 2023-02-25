@@ -3,15 +3,15 @@ import cn from "classnames";
 import { ButtonStyled } from "./button.styled";
 import { Loader } from "../loader";
 
-
 type ButtonOwnProps = {
-  label: string | React.ReactElement;
+  label: string | React.ReactNode;
   variant?: "primary" | "text" | "link" | "default";
   size?: "large" | "medium" | "small";
   loading?: boolean;
   block?: boolean;
-  icon?: React.ReactElement;
   onlyIcon?: boolean;
+  prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
 };
 
 type ButtonProps = ButtonOwnProps &
@@ -22,18 +22,20 @@ const Button: React.FC<ButtonProps> = ({
   size = "medium",
   loading,
   block,
-  icon,
   onlyIcon,
   label,
+  prefix,
+  suffix,
   ...props
 }) => {
-  const classes = cn("btn", {
+  const classes = cn(props.className, "btn", {
     [`btn-${size}`]: size,
     [`btn-${variant}`]: variant,
     [`btn-block`]: block,
     ["btn-loading"]: loading,
-    ["btn-icon"]: icon,
+    ["btn-icon"]: prefix || suffix,
     ["btn-icon-only"]: onlyIcon,
+    ["btn-spacebetween"]: prefix || suffix,
   });
 
   return (
@@ -43,10 +45,9 @@ const Button: React.FC<ButtonProps> = ({
           <Loader />
         </div>
       ) : null}
-      {
-        !loading && icon ? <span className='icon'>{icon}</span> : null
-      }
-      {!onlyIcon ? <span>{label}</span> : null}
+      {!loading && prefix ? <span className="icon">{prefix}</span> : null}
+      {!onlyIcon ? <span className="label">{label}</span> : null}
+      {!loading && suffix ? <span className="icon">{suffix}</span> : null}
     </ButtonStyled>
   );
 };

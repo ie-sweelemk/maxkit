@@ -6,6 +6,7 @@
       "shared/*": ["shared/*"],
       "pages/*": ["pages/*"],
       "features/*": ["features/*"],
+      "widgets/*": ["widgets/*"],
     },
     "target": "es5",
     "lib": [

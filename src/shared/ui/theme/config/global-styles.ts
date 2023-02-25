@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
   body {
-  font-family: ${({ theme }) => theme.font.fontFamily.Mulish};
+  font-family: ${({ theme }) => theme.font.fontFamily.RedHatDisplay};
   font-size: ${({ theme }) => theme.font.fontSize.base};
   font-weight: normal;
   font-style: normal;
@@ -44,7 +44,7 @@ html, body {
   color: ${({ theme }) => theme.colors.primary};
   text-decoration: none;
   outline: none;
-  font-weight: 700;
+  font-weight: 500;
 
   &:hover, &:active {
     color: ${({ theme }) => theme.colors.primary_hover};

@@ -10,6 +10,7 @@ export default defineConfig({
       'shared': path.resolve(__dirname, './src/shared'),
       'pages': path.resolve(__dirname, './src/pages'),
       'features': path.resolve(__dirname, './src/features'),
+      'widgets': path.resolve(__dirname, './src/widgets'),
     },
   },
   plugins: [react()],

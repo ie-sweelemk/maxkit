@@ -13,6 +13,7 @@ import {
   NewUserContainer,
 } from "./signin-form.styles";
 import { getProfile } from "shared/api/model/profile";
+import { routes } from "shared/constants";
 
 const { Title, Text, Link } = Typography;
 
@@ -44,9 +45,9 @@ const SigninForm: React.FC = () => {
     dispatch(authLogin(user))
       .unwrap()
       .then((response) => {
-        console.log(response)
-        navigate("/");
-        response && dispatch(getProfile(response.id))
+        response && dispatch(getProfile(response.id)).unwrap().finally(() => {
+          navigate(routes.dashboard);
+        })
       })
       .catch((error) => {
         console.log(error.message);
@@ -68,7 +69,7 @@ const SigninForm: React.FC = () => {
           </Title>
           <NewUserContainer>
             <Text className="subtitle">
-              New User? <Link to="/register">Create an account</Link>
+              New User? <Link to={routes.register}>Create an account</Link>
             </Text>
           </NewUserContainer>
         </TitleContainer>

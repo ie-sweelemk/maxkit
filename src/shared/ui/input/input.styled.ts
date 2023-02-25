@@ -14,7 +14,7 @@ export const InputContainer = styled.div`
 export const StyledInput = styled.input`
   &.input {
     font-size: ${({ theme }) => theme.font.fontSize.base};
-    font-family: ${({ theme }) => theme.font.fontFamily.Mulish};
+    font-family: ${({ theme }) => theme.font.fontFamily.RedHatDisplay};
     padding: 0 24px;
     height: 44px;
     display: flex;
