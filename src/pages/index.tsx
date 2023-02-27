@@ -6,7 +6,7 @@ import { Dashboard } from "./dashboard";
 import { Signin } from "./signin";
 import { Signup } from "./signup";
 import { isAppLoading } from "features/auth-provider/model";
-import { AppLayout } from "widgets/app-layout";
+import { AppLayout } from "widgets";
 import { routes } from "shared/constants";
 
 export const Routing = () => {

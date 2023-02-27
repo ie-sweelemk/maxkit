@@ -1,14 +1,18 @@
-import { Sidebar } from "features/sidebar";
+import { Sidebar } from "features";
 import { Outlet } from "react-router";
-import { AppLayoutContainer, AppContent } from "./app-layout.styled";
+import { Header } from "widgets";
+import { AppLayoutContainer, AppContent, AppContentWrapper } from "./app-layout.styled";
 
 const AppLayout: React.FC = () => {
   return (
     <AppLayoutContainer>
       <Sidebar />
-      <AppContent>
-        <Outlet />
-      </AppContent>
+      <AppContentWrapper>
+        <Header />
+        <AppContent>
+          <Outlet />
+        </AppContent>
+      </AppContentWrapper>
     </AppLayoutContainer>
   );
 };

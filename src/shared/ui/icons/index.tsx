@@ -10,6 +10,10 @@ import { Settings } from "./settings";
 import { Add } from "./add";
 import { ChevronDown } from "./chevron-down";
 import { ChevronUp } from "./chevronUp";
+import { Burger } from "./burger";
+import { User } from "./user";
+import { Alert } from "./alert";
+import { Message } from "./message";
 
 const IconComponents = {
   loader: <Loader />,
@@ -24,6 +28,10 @@ const IconComponents = {
   add: <Add />,
   chevronDown: <ChevronDown />,
   chevronUp: <ChevronUp />,
+  burger: <Burger />,
+  user: <User />,
+  alert: <Alert />,
+  message: <Message />,
 };
 
 type IconProps = {

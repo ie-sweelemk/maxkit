@@ -48,8 +48,6 @@ export const ButtonStyled = styled.button`
 
     .icon,
     .loading {
-      width: 20px;
-      height: 20px;
       font-size: 20px;
       display: flex;
 
@@ -72,6 +70,7 @@ export const ButtonStyled = styled.button`
     &.btn-icon-only {
       padding: 0;
       width: 44px;
+      justify-content: center;
     }
   }
 
@@ -82,8 +81,6 @@ export const ButtonStyled = styled.button`
 
     .icon,
     .loading {
-      width: 16px;
-      height: 16px;
       font-size: 16px;
 
       & + span,
@@ -105,6 +102,7 @@ export const ButtonStyled = styled.button`
     &.btn-icon-only {
       padding: 0;
       width: 32px;
+      justify-content: center;
     }
   }
 
@@ -115,8 +113,6 @@ export const ButtonStyled = styled.button`
 
     .icon,
     .loading {
-      width: 24px;
-      height: 24px;
       font-size: 24px;
 
       & + span,
@@ -138,6 +134,7 @@ export const ButtonStyled = styled.button`
     &.btn-icon-only {
       padding: 0;
       width: 52px;
+      justify-content: center;
     }
   }
 
