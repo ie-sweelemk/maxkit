@@ -9,3 +9,6 @@ export { default as Icon } from "./icons";
 export * from "./loader";
 export * from "./splash-screen";
 export * from "./sidebar-link";
+export * from "./profile";
+export * from "./badge";
+export * from "./heading";

@@ -7,6 +7,12 @@ export const AppLayoutContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.neutral_bg};
 `;
 
-export const AppContent = styled.div`
+export const AppContentWrapper = styled.div`
   flex: 1;
+`;
+export const AppContent = styled.div`
+  padding: ${({theme}) => theme.spacing.xxl};
+  flex: 1;
+  overflow: auto;
+  height: 100%;
 `;

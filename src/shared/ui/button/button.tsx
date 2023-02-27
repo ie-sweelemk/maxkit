@@ -4,7 +4,7 @@ import { ButtonStyled } from "./button.styled";
 import { Loader } from "../loader";
 
 type ButtonOwnProps = {
-  label: string | React.ReactNode;
+  label?: string | React.ReactNode;
   variant?: "primary" | "text" | "link" | "default";
   size?: "large" | "medium" | "small";
   loading?: boolean;
