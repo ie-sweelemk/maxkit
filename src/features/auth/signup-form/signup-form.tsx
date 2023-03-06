@@ -67,7 +67,7 @@ const SignupForm: React.FC = () => {
       });
   };
   return (
-    <Content withShadow space="xxl">
+    <Content withShadow space="xxl" full>
       <SignupFormContainer>
         <LogoContainer>
           <Logo />
@@ -78,7 +78,7 @@ const SignupForm: React.FC = () => {
           </Title>
           <NewUserContainer>
             <Text className="subtitle">
-              Already have an account? <Link to={routes.login}>Login</Link>
+              Already have an account? <Link to={routes.auth.login}>Login</Link>
             </Text>
           </NewUserContainer>
         </TitleContainer>

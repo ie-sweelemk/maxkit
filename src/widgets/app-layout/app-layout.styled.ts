@@ -8,6 +8,8 @@ export const AppLayoutContainer = styled.div`
 `;
 
 export const AppContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   flex: 1;
 `;
 export const AppContent = styled.div`

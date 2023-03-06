@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { signIn, signUp } from "../api";
+import { signIn, signOut, signUp } from "../api";
 
 export const authLogin = createAsyncThunk(
   "auth/login",
@@ -40,3 +40,17 @@ export const authRegister = createAsyncThunk(
     }
   }
 );
+
+export const authLogout = createAsyncThunk("auth/logout", async () => {
+  try {
+    const { error } = await signOut();
+
+    if (error) {
+      throw new Error(error.message);
+    }
+
+    return null;
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
+});

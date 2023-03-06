@@ -6,7 +6,7 @@ export const InputContainer = styled.div`
   .input-label {
     display: inline-flex;
     font-size: ${({theme}) => theme.font.fontSize.sm};
-    font-weight: 700;
+    font-weight: 500;
     margin-bottom: ${({theme}) => theme.spacing.m};
   }
 `;
@@ -46,6 +46,7 @@ export const StyledInput = styled.input`
     &:disabled {
       cursor: default;
       opacity: 0.5;
+      pointer-events: none;
     }
   }
 

@@ -8,6 +8,7 @@ import { Signup } from "./signup";
 import { isAppLoading } from "features/auth-provider/model";
 import { AppLayout } from "widgets";
 import { routes } from "shared/constants";
+import { Account, SettingsRoot, Settings } from "./settings";
 
 export const Routing = () => {
   const appLoading = useStateSelector(isAppLoading);
@@ -21,10 +22,14 @@ export const Routing = () => {
           <Route element={<PrivateRoute />}>
             <Route element={<AppLayout />}>
               <Route path={routes.dashboard} element={<Dashboard />} />
+              <Route path={routes.settings.base} element={<SettingsRoot />}>
+                <Route index element={<Settings />} />
+                <Route path={routes.settings.account} element={<Account />} />
+              </Route>
             </Route>
           </Route>
-          <Route path={routes.login} element={<Signin />} />
-          <Route path={routes.register} element={<Signup />} />
+          <Route path={routes.auth.login} element={<Signin />} />
+          <Route path={routes.auth.register} element={<Signup />} />
         </Routes>
       )}
     </>

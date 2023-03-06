@@ -1,10 +1,11 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router";
+import { useEffect, useMemo } from "react";
+import { useLocation, useNavigate, useNavigation } from "react-router";
 import { authActions } from "features/auth/model";
 import { useActionCreators, useAppDispatch } from "features/store";
 import { supabase } from "shared/api";
 import { appActions } from "./model";
 import { getProfile } from "shared/api/model/profile";
+import { routes } from "shared/constants";
 
 type AuthProviderProps = {
   children: React.ReactElement;
@@ -15,6 +16,11 @@ const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
   const app = useActionCreators(appActions);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
+  const authRoutes = useMemo(() => {
+    return Object.values(routes.auth)
+  }, [])
+
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session) {
@@ -22,7 +28,12 @@ const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
           id: session.user.id,
           email: session.user.email!,
         });
-        navigate("/");
+        if (!authRoutes.includes(location.pathname)) {
+          navigate(location.pathname);
+        } else {
+          navigate('/');
+        }
+        
         dispatch(getProfile(session.user.id)).unwrap().finally(() => {
           app.changeLoadingStatus(false);
         });

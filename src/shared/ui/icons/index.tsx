@@ -14,6 +14,10 @@ import { Burger } from "./burger";
 import { User } from "./user";
 import { Alert } from "./alert";
 import { Message } from "./message";
+import { ChevronRight } from "./chevrown-right";
+import { Close } from "./close";
+import { Edit } from "./edit";
+import { GalleryAdd } from "./gallery-add";
 
 const IconComponents = {
   loader: <Loader />,
@@ -28,17 +32,21 @@ const IconComponents = {
   add: <Add />,
   chevronDown: <ChevronDown />,
   chevronUp: <ChevronUp />,
+  cherronRight: <ChevronRight />,
   burger: <Burger />,
   user: <User />,
   alert: <Alert />,
   message: <Message />,
+  close: <Close />,
+  edit: <Edit />,
+  galleryAdd: <GalleryAdd />,
 };
 
 type IconProps = {
   name: keyof typeof IconComponents;
 };
 
-const Icon: React.FC<IconProps> = ({ name }) => {
+const Icon: React.FC<IconProps> = ({ name, ...props }) => {
   return IconComponents[name];
 };
 

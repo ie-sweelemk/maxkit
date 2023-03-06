@@ -7,6 +7,7 @@
       "pages/*": ["pages/*"],
       "features/*": ["features/*"],
       "widgets/*": ["widgets/*"],
+      "entities/*": ["entities/*"],
     },
     "target": "es5",
     "lib": [

@@ -57,7 +57,7 @@ const SigninForm: React.FC = () => {
       });
   };
   return (
-    <Content withShadow space="xxl">
+    <Content withShadow space="xxl" full>
       <SigninFormContainer>
         <LogoContainer>
           <Logo />
@@ -69,7 +69,7 @@ const SigninForm: React.FC = () => {
           </Title>
           <NewUserContainer>
             <Text className="subtitle">
-              New User? <Link to={routes.register}>Create an account</Link>
+              New User? <Link to={routes.auth.register}>Create an account</Link>
             </Text>
           </NewUserContainer>
         </TitleContainer>

@@ -1,16 +1,29 @@
-import styled, {css} from "styled-components";
-
-export const ProfileWrapper = styled.div`
+import styled, { css } from "styled-components";
+export const ProfileWrapper = styled.div.attrs(
+  ({
+    size,
+    iconSize,
+  }: {
+    size: string | number;
+    iconSize: string | number;
+  }) => ({
+    size,
+    iconSize,
+  })
+)`
   background-color: ${({ theme }) => theme.colors.primary90};
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
   color: ${({ theme }) => theme.colors.primary};
-  ${({size}: {size: string | number}) =>
+  border-radius: ${({ theme }) => theme.borderRadius.m};
+  overflow: hidden;
+  font-size: ${(props) => `${props.iconSize}px`};
+  overflow: hidden;
+  ${(props) =>
     css`
-      width: ${() => `${size}px`};
-      height: ${() => `${size}px`};
+      width: ${() => `${props.size}px`};
+      height: ${() => `${props.size}px`};
     `}
 
   img {
@@ -18,4 +31,4 @@ export const ProfileWrapper = styled.div`
     height: 100%;
     object-fit: cover;
   }
-`
+`;

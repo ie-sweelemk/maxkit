@@ -52,17 +52,6 @@ const Sidebar: React.FC = () => {
             <SidebarNav />
           </SidebarNavContainer>
         </SidebarContainer>
-        <SidebarFooter>
-          <SidebarLink
-            to={routes.settings}
-            onClick={handleClick}
-          >
-            <span className="link-icon">
-              <Icon name="settings" />
-            </span>
-            Settings
-          </SidebarLink>
-        </SidebarFooter>
       </SidebarWrapper>
     </SidebarGlobalContainer>
   );

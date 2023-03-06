@@ -4,11 +4,12 @@ import { ProfileWrapper } from "./profile.styled";
 type ProfileProps = {
   imageURL?: string;
   size?: string | number;
+  iconsSize?: string | number;
 }
 
-const Profile: React.FC<ProfileProps> = ({imageURL, size = '44'}) => {
+const Profile: React.FC<ProfileProps> = ({imageURL, size = '44', iconsSize = '24'}) => {
   return (
-    <ProfileWrapper size={size}>
+    <ProfileWrapper size={size} iconSize={iconsSize}>
       {
         imageURL ? (
           <img src={imageURL} alt='profile' />

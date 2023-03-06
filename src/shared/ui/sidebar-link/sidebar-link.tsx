@@ -1,21 +1,22 @@
 import cn from "classnames";
-import { LinkProps } from "react-router-dom";
+import { NavLinkProps } from "react-router-dom";
 import { Link } from "./sidebar-link.styled";
 
 type SidebarLinkOwnProps = {
-  isActive?: boolean;
   sublink?: boolean;
+  className?: string;
 };
 
-type SidebarLinkProps = SidebarLinkOwnProps & Omit<LinkProps, keyof SidebarLinkOwnProps>
+type SidebarLinkProps = SidebarLinkOwnProps & Omit<NavLinkProps, keyof SidebarLinkOwnProps>
 
-const SidebarLink: React.FC<SidebarLinkProps> = ({isActive, sublink, ...props}) => {
-  const classNames = cn('nav-link', {
-    ["active"]: isActive,
+const SidebarLink: React.FC<SidebarLinkProps> = ({sublink, ...props}) => {
+
+  const className = cn('nav-link', {
     ["sublink"]: sublink,
-  }, props.className)
+  }, props.className);
+
   return (
-    <Link className={classNames} {...props}></Link>
+    <Link className={className} {...props} ></Link>
   )
 }
 
