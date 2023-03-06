@@ -14,7 +14,7 @@ export const ContentStyled = styled.div.attrs(
   })
 )`
   background-color: ${({ theme }) => theme.colors.white};
-  width: 100%;
+  width: ${({ full }: { full: boolean }) => (full ? "100%" : "initial")};
   padding: ${(props) => props.theme.spacing[props.space]};
   border-radius: ${({ theme }) => theme.borderRadius.l};
   ${(props) =>

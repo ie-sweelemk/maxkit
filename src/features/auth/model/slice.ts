@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AuthUser } from "shared/types";
-import { authLogin, authRegister } from './thunk';
+import { authLogin, authRegister, authLogout } from './thunk';
 import { InitialState } from "./types";
 
 const initialState: InitialState = {
@@ -37,6 +37,10 @@ const slice = createSlice({
         state.isAuthenticated = true;
       })
       .addCase(authRegister.rejected, (state) => {
+        state.isAuthenticated = false;
+      })
+      .addCase(authLogout.fulfilled, (state) => {
+        state.user = null;
         state.isAuthenticated = false;
       })
   }

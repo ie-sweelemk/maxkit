@@ -15,3 +15,6 @@ declare module 'styled-components' {
     borderRadius: typeof borderRadius;
   }
 }
+
+
+type Base64<imageType extends string> = `data:image/${imageType};base64${string}`

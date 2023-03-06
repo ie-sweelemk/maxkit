@@ -9,7 +9,7 @@ export const getProfile = createAsyncThunk(
       
       const {data: profiles, error} = await supabase
       .from('profile')
-      .select('id, email, name, picture, country, city, province')
+      .select('id, email, name, picture, country, city, province, bio')
       .eq('id', userId);
       const [profile] = profiles as UserProfile[];
 

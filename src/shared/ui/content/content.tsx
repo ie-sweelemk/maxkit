@@ -14,10 +14,11 @@ const Content: React.FC<ContentProps> = ({
   children,
   withShadow = false,
   space = 'xl',
+  full = false,
   ...other
 }) => {
   return (
-    <ContentStyled withShadow={withShadow} space={space} {...other}>
+    <ContentStyled withShadow={withShadow} space={space} full={full} {...other}>
       {children}
     </ContentStyled>
   );

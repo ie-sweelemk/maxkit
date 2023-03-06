@@ -10,9 +10,8 @@ export const SidebarOverlay = styled.div`
   z-index: 1;
   opacity: 0;
   visibility: hidden;
-  transition: opacity .3s ease, visibility .3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 `;
-
 
 export const SidebarWrapper = styled.div`
   position: relative;
@@ -27,7 +26,7 @@ export const SidebarWrapper = styled.div`
 
   @media screen and (max-width: 1180px) {
     transform: translateX(-300px);
-    transition: transform .3s ease;
+    transition: transform 0.3s ease;
   }
 `;
 
@@ -41,8 +40,8 @@ export const SidebarGlobalContainer = styled.div`
     width: 100%;
     height: 100%;
     z-index: 1000;
-    transition: left .0s;
-    transition-delay: .3s;
+    transition: left 0s;
+    transition-delay: 0.3s;
 
     &.sidebar-opened {
       left: 0;
@@ -54,13 +53,17 @@ export const SidebarGlobalContainer = styled.div`
       }
 
       ${SidebarWrapper} {
-        transform: translateX(0)
+        transform: translateX(0);
       }
     }
   }
 `;
 
-export const SidebarContainer = styled.div``;
+export const SidebarContainer = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`;
 
 export const SidebarLogoContainer = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing.xxl};
@@ -76,6 +79,8 @@ export const SidebarCreateContainer = styled.div`
   }
 `;
 
-export const SidebarNavContainer = styled.div``;
+export const SidebarNavContainer = styled.div`
+  height: 100%;
+`;
 
 export const SidebarFooter = styled.div``;

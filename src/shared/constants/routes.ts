@@ -1,17 +1,22 @@
 export const routes = {
   dashboard: "/",
-  login: "/login",
-  register: "/register",
-  products: {
-    base: '/products',
-    all: "/products/all",
-    draft: "/products/draft",
-    category: "/products/category",
-    new: "/products/new"
+  auth: {
+    login: "/login",
+    register: "/register",
   },
-  orders: "/orders",
-  customers: "/customers",
-  reviews: "/reviews",
-  checkouts: "/checkouts",
-  settings: "/settings"
+  products: {
+    base: 'products',
+    all: "all",
+    draft: "draft",
+    category: "category",
+    new: "new"
+  },
+  orders: "orders",
+  customers: "customers",
+  reviews: "reviews",
+  checkouts: "checkouts",
+  settings: {
+    base: 'settings',
+    account: "account"
+  }
 };

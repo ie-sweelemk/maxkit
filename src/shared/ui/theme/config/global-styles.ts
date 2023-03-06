@@ -35,6 +35,7 @@ html, body {
 
 .typography {
   font-size: ${({ theme }) => theme.font.fontSize.base};
+  font-weight: 500;
 }
 
 :where(.link).typography {

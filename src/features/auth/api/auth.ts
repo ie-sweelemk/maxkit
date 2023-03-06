@@ -1,5 +1,5 @@
 import { supabase } from "shared/api";
-import { CreateUser } from "./types";
+import { CreateUser } from "shared/types";
 
 export const signUp = async (user: CreateUser) => {
   return await supabase.auth.signUp(
@@ -15,4 +15,9 @@ export const signIn = async (user: CreateUser) => {
     email: user.email,
     password: user.password,
   });
+};
+
+
+export const signOut = async () => {
+  return await supabase.auth.signOut();
 };
