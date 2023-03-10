@@ -20,7 +20,7 @@ export const StyledInput = styled.input`
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: ${({ theme }) => theme.borderRadius.m};
+    border-radius: ${({ theme }) => theme.borderRadius.l};
     position: relative;
     white-space: nowrap;
     touch-action: manipulation;

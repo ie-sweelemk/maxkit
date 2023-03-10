@@ -28,7 +28,7 @@ export const FileUploaderContainer = styled.div`
       transition: background 200ms;
       border: 1px solid ${({ theme }) => theme.colors.neutral_grey};
       color: ${({ theme }) => theme.colors.neutral_grey};
-      border-radius: ${({ theme }) => theme.borderRadius.m};
+      border-radius: ${({ theme }) => theme.borderRadius.l};
     }
 
     .rectangle-body {

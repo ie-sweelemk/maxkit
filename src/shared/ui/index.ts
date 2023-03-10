@@ -19,3 +19,4 @@ export * from "./profile-editor";
 export * from "./file-uploader";
 export * from "./image-cropper";
 export * from "./slider";
+export * from "./toast";

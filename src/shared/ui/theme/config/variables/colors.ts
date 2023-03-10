@@ -16,7 +16,7 @@ const colors = {
   neutral_grey: "#CED0D8",
 
   green: "#00C222",
-  green_bg: "#E6F9E9",
+  green_bg: "#F3FFF5",
   green_hover: "#008818",
   yellow: "#FFAA37",
   yellow_bg: "#FFF7EB",

@@ -7,7 +7,7 @@ export const ModalStyled = styled.div`
   flex-direction: column;
   flex-basis: 470px;
   max-width: 470px;
-  border-radius: ${({theme}) => theme.borderRadius.m};
+  border-radius: ${({theme}) => theme.borderRadius.l};
   position: relative;
 `;
 export const ModalHeader = styled.div`

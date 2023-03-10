@@ -9,7 +9,7 @@ export const Link = styled(RouterLink)`
     font-size: ${({ theme }) => theme.font.fontSize.sm};
     color: ${({ theme }) => theme.colors.dark_grey};
     transition: background-color 0.3s ease, color 0.3s ease;
-    border-radius: ${({ theme }) => theme.borderRadius.m};
+    border-radius: ${({ theme }) => theme.borderRadius.l};
     padding: 0 ${({ theme }) => theme.spacing.xl};
     display: flex;
     align-items: center;

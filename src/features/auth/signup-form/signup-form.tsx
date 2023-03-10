@@ -1,6 +1,13 @@
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { Button, Content, Input, Logo, Typography } from "shared/ui";
+import {
+  Button,
+  Content,
+  errorToast,
+  Input,
+  Logo,
+  Typography,
+} from "shared/ui";
 import {
   SignupFormContainer,
   LogoContainer,
@@ -9,19 +16,17 @@ import {
 } from "./signup-form.styles";
 import { FormField } from "shared/ui/styled-components";
 import { authRegister } from "../model";
-import { useActionCreators, useAppDispatch } from "features/store";
+import { useAppDispatch } from "features/store";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import { getProfile } from "shared/api/model/profile";
-import { appActions } from "features/auth-provider/model";
 import { routes } from "shared/constants";
 
 const { Text, Title, Link } = Typography;
 
 const SignUpSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
-  password: Yup.string()
-    .required("Required"),
+  password: Yup.string().required("Required"),
   passwordConfirmation: Yup.string().equals([
     Yup.ref("password"),
     "Password don't match",
@@ -43,7 +48,6 @@ const formInitialValues: formState = {
 const SignupForm: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const dispatch = useAppDispatch();
-  const app = useActionCreators(appActions);
   const navigate = useNavigate();
   const onHandleSubmit = async (e: formState) => {
     setLoading(true);
@@ -55,12 +59,15 @@ const SignupForm: React.FC = () => {
     dispatch(authRegister(user))
       .unwrap()
       .then((response) => {
-        response && dispatch(getProfile(response.id)).unwrap().finally(() => {
-          navigate(routes.dashboard);
-        })
+        response &&
+          dispatch(getProfile(response.id))
+            .unwrap()
+            .finally(() => {
+              navigate(routes.dashboard);
+            });
       })
       .catch((error) => {
-        console.log(error.message);
+        errorToast(error.message);
       })
       .finally(() => {
         setLoading(false);
@@ -73,9 +80,7 @@ const SignupForm: React.FC = () => {
           <Logo />
         </LogoContainer>
         <TitleContainer>
-          <Title className="title">
-            Create an account
-          </Title>
+          <Title className="title">Create an account</Title>
           <NewUserContainer>
             <Text className="subtitle">
               Already have an account? <Link to={routes.auth.login}>Login</Link>

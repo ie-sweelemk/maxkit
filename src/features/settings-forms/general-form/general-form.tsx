@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import { useEffect, useRef, useState } from "react";
 import { supabase } from "shared/api";
 import { UserProfile } from "shared/types";
-import { Button, Input } from "shared/ui";
+import { Button, errorToast, Input, successToast } from "shared/ui";
 import { FormField } from "shared/ui/styled-components";
 import { SettingsForm } from "../settings-forms.styles";
 import { ProfilePhoto } from "./components";
@@ -50,7 +50,6 @@ const GeneralForm: React.FC = () => {
   const generalFormSubmit = async (formValues: GeneralFormState) => {
     setFormUpdating(true);
     let pathToImage = "";
-
     try {
       if (profilePicture.length) {
         const block = formValues.picture!.split(";");
@@ -89,9 +88,11 @@ const GeneralForm: React.FC = () => {
           setProfilePicture("");
           profilePhotoRef.current.resetProfilePhoto();
           formik.resetForm();
+          successToast("Your profile was updated successfully")
         });
     } catch (error) {
       console.warn(error);
+      errorToast(error as string);
     } finally {
       setFormUpdating(false);
     }
@@ -105,8 +106,11 @@ const GeneralForm: React.FC = () => {
             profilePhotoRef={profilePhotoRef}
             picture={profilePicture || profileState.picture}
             onChange={(image) => {
-              setProfilePicture(image ? image : profileState.picture!);
-              formik.setFieldValue("picture", image ? image : profileState.picture!);
+              setProfilePicture(image);
+              formik.setFieldValue(
+                "picture",
+                image ? image : profileState.picture!
+              );
             }}
           />
         </FormField>
@@ -169,6 +173,7 @@ const GeneralForm: React.FC = () => {
         </FormField>
         <FormField>
           <Button
+            type="submit"
             label="Save"
             variant="primary"
             loading={isFormUpdating}
