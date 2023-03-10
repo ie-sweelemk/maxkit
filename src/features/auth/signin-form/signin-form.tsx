@@ -4,7 +4,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { useAppDispatch } from "features/store";
 import { authLogin } from "../model";
-import { Button, Content, Input, Logo, Typography } from "shared/ui";
+import { Button, Content, errorToast, Input, Logo, Typography } from "shared/ui";
 import { FormField } from "shared/ui/styled-components";
 import {
   SigninFormContainer,
@@ -50,7 +50,7 @@ const SigninForm: React.FC = () => {
         })
       })
       .catch((error) => {
-        console.log(error.message);
+        errorToast(error.message);
       })
       .finally(() => {
         setLoading(false);

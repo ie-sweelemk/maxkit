@@ -18,6 +18,7 @@ import { ChevronRight } from "./chevrown-right";
 import { Close } from "./close";
 import { Edit } from "./edit";
 import { GalleryAdd } from "./gallery-add";
+import { Check } from "./check";
 
 const IconComponents = {
   loader: <Loader />,
@@ -40,6 +41,7 @@ const IconComponents = {
   close: <Close />,
   edit: <Edit />,
   galleryAdd: <GalleryAdd />,
+  checkmark: <Check />,
 };
 
 type IconProps = {

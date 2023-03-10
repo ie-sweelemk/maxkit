@@ -9,7 +9,7 @@ export const ButtonStyled = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: ${({ theme }) => theme.borderRadius.m};
+    border-radius: ${({ theme }) => theme.borderRadius.l};
     position: relative;
     white-space: nowrap;
     cursor: pointer;

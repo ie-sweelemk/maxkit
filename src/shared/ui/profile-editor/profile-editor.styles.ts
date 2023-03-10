@@ -18,7 +18,7 @@ export const ProfileEditorContainer = styled.div`
     width: 30px;
     height: 30px;
     font-size: 18px;
-    border-radius: ${({ theme }) => theme.borderRadius.m};
+    border-radius: ${({ theme }) => theme.borderRadius.l};
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.25);
     position: absolute;
     right: 0;

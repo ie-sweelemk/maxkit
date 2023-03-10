@@ -16,7 +16,7 @@ export const ProfileWrapper = styled.div.attrs(
   align-items: center;
   justify-content: center;
   color: ${({ theme }) => theme.colors.primary};
-  border-radius: ${({ theme }) => theme.borderRadius.m};
+  border-radius: ${({ theme }) => theme.borderRadius.l};
   overflow: hidden;
   font-size: ${(props) => `${props.iconSize}px`};
   overflow: hidden;
