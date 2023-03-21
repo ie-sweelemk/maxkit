@@ -43,7 +43,7 @@ const Sidebar: React.FC = () => {
           <SidebarCreateContainer>
             <Button
               variant="primary"
-              label="Create Product"
+              label="Create product"
               size="large"
               block
               suffix={<Icon name="add" />}

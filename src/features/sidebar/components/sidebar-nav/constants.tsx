@@ -31,15 +31,15 @@ export const sidebarRoutes: SidebarRoute[] = [
     child: [
       {
         key: "all",
-        path: routes.products.all,
+        path: `${routes.products.base}/${routes.products.all}`,
         props: {
-          label: "All",
+          label: "All products",
           icon: null,
         },
       },
       {
         key: "draft",
-        path: routes.products.draft,
+        path: `${routes.products.base}/${routes.products.draft}`,
         props: {
           label: "Draft",
           icon: null,
@@ -47,7 +47,7 @@ export const sidebarRoutes: SidebarRoute[] = [
       },
       {
         key: "category",
-        path: routes.products.category,
+        path: `${routes.products.base}/${routes.products.category}`,
         props: {
           label: "Category",
           icon: null,

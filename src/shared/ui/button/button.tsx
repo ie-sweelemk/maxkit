@@ -5,7 +5,7 @@ import { Loader } from "../loader";
 
 type ButtonOwnProps = {
   label?: string | React.ReactNode;
-  variant?: "primary" | "text" | "link" | "default";
+  variant?: "primary" | "text" | "link" | "danger" | "default";
   size?: "large" | "medium" | "small";
   loading?: boolean;
   block?: boolean;

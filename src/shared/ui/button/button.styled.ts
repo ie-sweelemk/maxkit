@@ -150,6 +150,19 @@ export const ButtonStyled = styled.button`
     }
   }
 
+  &.btn-danger{
+    background-color: ${({ theme }) => theme.colors.red};
+    color: ${({ theme }) => theme.colors.white};
+    border-color: ${({ theme }) => theme.colors.red};
+    filter: drop-shadow(0px 10px 30px rgba(247, 75, 89, 0.2));
+
+    &:hover:not(:disabled) {
+      color: ${({ theme }) => theme.colors.white};
+      background-color: ${({ theme }) => theme.colors.red_hover};
+      border-color: ${({ theme }) => theme.colors.red_hover};
+    }
+  }
+
   &.btn-text {
     background-color: transparent;
     border-color: transparent;

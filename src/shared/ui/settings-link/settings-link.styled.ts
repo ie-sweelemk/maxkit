@@ -13,10 +13,12 @@ export const Link = styled(RouterLink)`
     padding: 0 ${({ theme }) => theme.spacing.xl};
     display: flex;
     align-items: center;
-    margin-bottom: ${({ theme }) => theme.spacing.m};
     font-weight: 500;
     align-items: center;
     justify-content: space-between;
+    &:not(:last-child) {
+      margin-bottom: ${({ theme }) => theme.spacing.m};
+    }
 
     &:hover {
       background-color: ${({ theme }) => theme.colors.light_grey};

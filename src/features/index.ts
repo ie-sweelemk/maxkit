@@ -5,3 +5,4 @@ export * from "./auth-provider";
 export * from "./store";
 export * from "./burger";
 export * from "./header-actions";
+export * from "./product-categories";

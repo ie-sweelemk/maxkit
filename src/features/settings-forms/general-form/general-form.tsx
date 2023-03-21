@@ -5,12 +5,12 @@ import { supabase } from "shared/api";
 import { UserProfile } from "shared/types";
 import { Button, errorToast, Input, successToast } from "shared/ui";
 import { FormField } from "shared/ui/styled-components";
-import { SettingsForm } from "../settings-forms.styles";
 import { ProfilePhoto } from "./components";
 import { ProfilePhotoRef } from "./components/profile-photo/profile-photo";
 import { profileSelector } from "./model";
-import { b64toBlob, removeEmptyValues } from "shared/lib";
+import { b64toBlob } from "shared/lib";
 import { getProfile } from "shared/api/model/profile";
+import { Form } from "../settings-forms.styles";
 
 type GeneralFormState = Omit<UserProfile, "email">;
 
@@ -100,7 +100,7 @@ const GeneralForm: React.FC = () => {
 
   return (
     <>
-      <SettingsForm onSubmit={formik.handleSubmit}>
+      <Form onSubmit={formik.handleSubmit}>
         <FormField>
           <ProfilePhoto
             profilePhotoRef={profilePhotoRef}
@@ -180,7 +180,7 @@ const GeneralForm: React.FC = () => {
             disabled={isFormUpdating}
           />
         </FormField>
-      </SettingsForm>
+      </Form>
     </>
   );
 };

@@ -29,7 +29,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
           email: session.user.email!,
         });
         if (!authRoutes.includes(location.pathname)) {
-          navigate(location.pathname);
+          navigate(`${location.pathname}${location.search}`);
         } else {
           navigate('/');
         }
