@@ -23,7 +23,7 @@ const colors = {
   yellow_hover: "#B37727",
   red: "#F74B59",
   red_bg: "#FEEDEE",
-  red_hover: "#de4450",
+  red_hover: "#f85d6a",
 
   white: "#ffffff",
   natural_black: "#30373D",

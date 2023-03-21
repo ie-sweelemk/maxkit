@@ -20,7 +20,7 @@ const SidebarItemCollapse: React.FC<SidebarItemCollapseProps> = ({
   const sidebar = useActionCreators(sidebarActions);
   const location = useLocation();
   const [open, setOpen] = useState(false);
-
+  
   const handleClick = useCallback(() => {
     sidebar.setSidebarState(false);
   }, []);
@@ -31,7 +31,7 @@ const SidebarItemCollapse: React.FC<SidebarItemCollapseProps> = ({
     });
   }, [open]);
   useEffect(() => {
-    if (false) {
+    if (location.pathname.split('/').includes(routeItem.path)) {
       setOpen(true);
     }
   }, [routeItem]);

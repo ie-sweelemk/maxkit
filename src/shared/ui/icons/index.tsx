@@ -19,6 +19,7 @@ import { Close } from "./close";
 import { Edit } from "./edit";
 import { GalleryAdd } from "./gallery-add";
 import { Check } from "./check";
+import { Delete } from "./delete";
 
 const IconComponents = {
   loader: <Loader />,
@@ -42,6 +43,7 @@ const IconComponents = {
   edit: <Edit />,
   galleryAdd: <GalleryAdd />,
   checkmark: <Check />,
+  delete: <Delete />,
 };
 
 type IconProps = {

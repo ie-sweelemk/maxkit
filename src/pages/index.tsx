@@ -8,7 +8,8 @@ import { Signup } from "./signup";
 import { isAppLoading } from "features/auth-provider/model";
 import { AppLayout } from "widgets";
 import { routes } from "shared/constants";
-import { Account, SettingsRoot, Settings } from "./settings";
+import { Email, SettingsRoot, Settings } from "./settings";
+import { AllProducts, Category, CategoryNew, CategoryRoot, DraftProducts, ProductsRoot } from "./products";
 
 export const Routing = () => {
   const appLoading = useStateSelector(isAppLoading);
@@ -22,9 +23,17 @@ export const Routing = () => {
           <Route element={<PrivateRoute />}>
             <Route element={<AppLayout />}>
               <Route path={routes.dashboard} element={<Dashboard />} />
+              <Route path={routes.products.base} element={<ProductsRoot />}>
+                <Route path={routes.products.all} element={<AllProducts />} />
+                <Route path={routes.products.draft} element={<DraftProducts />} />
+                <Route path={routes.products.category} element={<CategoryRoot />}>
+                  <Route index element={<Category />} />
+                  <Route path={routes.products.new} element={<CategoryNew />} />
+                </Route>
+              </Route>
               <Route path={routes.settings.base} element={<SettingsRoot />}>
                 <Route index element={<Settings />} />
-                <Route path={routes.settings.account} element={<Account />} />
+                <Route path={routes.settings.email} element={<Email />} />
               </Route>
             </Route>
           </Route>

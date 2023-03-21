@@ -17,6 +17,6 @@ export const routes = {
   checkouts: "checkouts",
   settings: {
     base: 'settings',
-    account: "account"
+    email: "email"
   }
 };

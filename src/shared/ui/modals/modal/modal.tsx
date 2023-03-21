@@ -1,6 +1,6 @@
 import React from 'react';
 import ModalOverlay from '../modal-overlay/modal-overlay';
-import { ModalStyled, ModalHeader, ModalBody } from './model.styled';
+import { ModalStyled, ModalHeader, ModalBody } from './modal.styled';
 import { Button } from '../../button';
 import Icons from '../../icons';
 
