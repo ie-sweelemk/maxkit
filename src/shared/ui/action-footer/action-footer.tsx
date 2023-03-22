@@ -23,7 +23,14 @@ const ActionFooter: React.FC<ActionFooterProps> = ({
       </LastUpdated>
       <Actions>
         {handleCancel ? <Button onClick={handleCancel} label="Cancel" /> : null}
-        {handleOk ? <Button onClick={handleOk} label="Submit" variant="primary" /> : null}
+        {handleOk ? (
+          <Button
+            onClick={handleOk}
+            label="Submit"
+            variant="primary"
+            type="button"
+          />
+        ) : null}
       </Actions>
     </ActionFooterStyled>
   );

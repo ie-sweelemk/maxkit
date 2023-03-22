@@ -4,10 +4,7 @@ import { Heading } from "shared/ui";
 
 const CategoryNew: React.FC = () => {
   const location = useLocation();
-  console.log(location);
   const [searchParams] = useSearchParams();
-  console.log(searchParams.get('categoryId'));
-  
   
   return (
     <>

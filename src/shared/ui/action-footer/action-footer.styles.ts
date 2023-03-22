@@ -7,6 +7,11 @@ export const ActionFooterStyled = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 0 -${({ theme }) => theme.spacing.xxl} -${({ theme }) => theme.spacing.xxl};
+  position: sticky;
+  bottom: -${({ theme }) => theme.spacing.xxl};
+  border-style: solid;
+  border-color: ${({ theme }) => theme.colors.neutral_bg};
+  border-width: 1px 0 0 1px;
 `;
 
 export const LastUpdated = styled.div``;

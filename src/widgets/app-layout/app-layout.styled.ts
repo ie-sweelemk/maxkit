@@ -14,6 +14,8 @@ export const AppContentWrapper = styled.div`
 `;
 export const AppContent = styled.div`
   padding: ${({ theme }) => theme.spacing.xxl};
+  display: flex;
+  flex-direction: column;
   flex: 1;
   overflow: auto;
 `;

@@ -16,9 +16,12 @@ export const HeaderContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 ${({ theme }) => theme.spacing.xxl};
+  border-style: solid;
+  border-color: ${({ theme }) => theme.colors.neutral_bg};
+  border-width: 0 0 0 1px;
 
   @media screen and (min-width: 1181px) {
-    border-left: 1px solid ${({ theme }) => theme.colors.neutral_bg};
+    border-width: 0 0 1px 1px;
 
     ${HeaderLeftSide} {
       .btn {

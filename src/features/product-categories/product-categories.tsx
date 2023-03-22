@@ -1,5 +1,5 @@
-import { HTMLProps, useMemo, useRef, useState } from "react";
-import { usePagination } from "shared/hooks";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useDebounce, usePagination } from "shared/hooks";
 import {
   Button,
   ConfirmModal,
@@ -9,8 +9,7 @@ import {
   Input,
   Table,
 } from "shared/ui";
-import { deleteCategory, fetchCategories } from "./modules/api";
-import { Categories, Category } from "./modules/types";
+import { deleteCategory, fetchCategories } from "./model/api";
 import { ColumnDef } from "@tanstack/react-table";
 import {
   CategoryActions,
@@ -18,16 +17,20 @@ import {
   SearchContainer,
   TableContainer,
 } from "./product-categories.styles";
+import { Categories, Category } from "shared/types";
 
 const ProductCategories: React.FC = () => {
   const countPageRef = useRef<number>(0);
   const [deleteRow, setDeleteRow] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [queryString, setQueryString] = useState<string>("");
   const pageDepth = 10;
   const [categories, setCategories] = useState<Categories>({
     count: 0,
     data: [],
   });
+
+  const searchQuery = useDebounce(queryString, 500);
 
   const countPages = useMemo(() => {
     return Math.ceil(categories.count / pageDepth);
@@ -51,12 +54,12 @@ const ProductCategories: React.FC = () => {
     }
   };
 
-  const getCategories = async (page: number = 0) => {
+  const getCategories = async (page: number = 0, query?: string) => {
     countPageRef.current = page;
     const { from, to } = usePagination(page, pageDepth);
 
     try {
-      const { count, data, error } = await fetchCategories(from, to);
+      const { count, data, error } = await fetchCategories(from, to, query);
 
       if (error) {
         throw new Error(error.message);
@@ -72,6 +75,10 @@ const ProductCategories: React.FC = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    getCategories(0, searchQuery);
+  }, [searchQuery]);
 
   const columns = useMemo<ColumnDef<Category>[]>(() => {
     return [
@@ -120,7 +127,12 @@ const ProductCategories: React.FC = () => {
     <Content>
       <ProductCategoriesContainer>
         <SearchContainer>
-          <Input placeholder="Search category by name" />
+          <Input
+            placeholder="Search category by name"
+            suffix={<Icon name="search" />}
+            value={queryString}
+            onChange={(e) => setQueryString(e.target.value)}
+          />
         </SearchContainer>
         <TableContainer>
           <Table
