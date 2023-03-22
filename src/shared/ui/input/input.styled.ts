@@ -5,9 +5,9 @@ export const InputContainer = styled.div`
 
   .input-label {
     display: inline-flex;
-    font-size: ${({theme}) => theme.font.fontSize.sm};
+    font-size: ${({ theme }) => theme.font.fontSize.sm};
     font-weight: 500;
-    margin-bottom: ${({theme}) => theme.spacing.m};
+    margin-bottom: ${({ theme }) => theme.spacing.m};
   }
 `;
 
@@ -28,7 +28,7 @@ export const StyledInput = styled.input`
     border: 1px solid ${({ theme }) => theme.colors.grey};
     background-color: transparent;
     transition: background-color 0.3s ease, color 0.3s ease,
-    border-color 0.3s ease;
+      border-color 0.3s ease;
     color: ${({ theme }) => theme.colors.dark_main};
     box-sizing: border-box;
     outline: none;
@@ -83,6 +83,38 @@ export const StyledInput = styled.input`
     &:hover,
     &:focus {
       border-color: ${({ theme }) => theme.colors.green_hover};
+    }
+  }
+
+  &.input {
+    &-preffix {
+      padding-left: 48px;
+    }
+
+    &-suffix {
+    padding-right: 48px;
+  }
+  }
+`;
+
+export const InputWrapper = styled.div`
+  width: inherit;
+  position: relative;
+
+  .icon {
+    position: absolute;
+    font-size: 20px;
+    display: flex;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    &-preffix {
+      left: ${({ theme }) => theme.spacing.l};
+    }
+
+    &-suffix {
+      right: ${({ theme }) => theme.spacing.l};
     }
   }
 `;

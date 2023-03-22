@@ -10,3 +10,5 @@ export type Categories = {
   data: Category[];
   count: number;
 };
+
+export type CreateCategory = Omit<Category, "id" | "created_at">;

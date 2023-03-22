@@ -16,7 +16,6 @@ const Category: React.FC = () => {
             variant="primary"
             onClick={() => navigate({
               pathname: `${location.pathname}/new`,
-              search: '?categoryId=asddsa-saddas-2311-3123'
             })}
           />
         }

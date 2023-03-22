@@ -20,6 +20,7 @@ export const ContentStyled = styled.div.attrs(
   width: ${({ full }: { full: boolean }) => (full ? "100%" : "initial")};
   flex: ${(props) => props.flexAria ? props.flexAria : 'none'};
   padding: ${(props) => props.theme.spacing[props.space]};
+  margin-bottom: ${({theme}) => theme.spacing.xxl};
   border-radius: ${({ theme }) => theme.borderRadius.l};
   ${(props) =>
     props.withShadow &&

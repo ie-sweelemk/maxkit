@@ -42,3 +42,13 @@ export const removeEmptyValues = (obj: { [x: string]: any }) => {
 
   return obj;
 };
+
+
+export const hasNonEmptyValues = (obj: {[key: string]: string}) => {
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key) && typeof obj[key] === 'string' && obj[key].trim() !== '') {
+      return true;
+    }
+  }
+  return false;
+}
