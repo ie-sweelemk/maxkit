@@ -21,6 +21,8 @@ import { GalleryAdd } from "./gallery-add";
 import { Check } from "./check";
 import { Delete } from "./delete";
 import { Search } from "./search";
+import { Empty } from "./empty";
+import { CheckMark } from "./check_mark";
 
 const IconComponents = {
   loader: <Loader />,
@@ -46,6 +48,8 @@ const IconComponents = {
   checkmark: <Check />,
   delete: <Delete />,
   search: <Search />,
+  empty: <Empty />,
+  check: <CheckMark />,
 };
 
 type IconProps = {

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate, } from "react-router-dom";
 import { routes } from "shared/constants";
 
 const ProductsRoot: React.FC = () => {

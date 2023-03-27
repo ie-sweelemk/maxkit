@@ -22,3 +22,5 @@ export * from "./slider";
 export * from "./toast";
 export * from "./table";
 export * from "./action-footer";
+export * from "./page-spin";
+export * from "./empty";

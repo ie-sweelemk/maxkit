@@ -14,12 +14,10 @@ import {
 } from "@tanstack/react-table";
 import ReactPaginate from "react-paginate";
 import {
-  Empty,
   TableStyled,
-  LoaderContainer,
   PaginationContainer,
 } from "./table.styles";
-import { Loader } from "shared/ui";
+import { PageSpin, Empty } from "shared/ui";
 
 export type TableRef = {};
 
@@ -96,7 +94,6 @@ const Table = <TData extends object>({
     }),
     [pageIndex, pageSize]
   );
-  
 
   useEffect(() => {
     if (onPaginationChange) {
@@ -119,12 +116,10 @@ const Table = <TData extends object>({
 
   const handlePageClick = (selectedItem: { selected: number }) => {
     table.setPageIndex(selectedItem.selected);
-  }
-
-  const emptyContainer = () => <Empty>There is no any data yet.</Empty>;
+  };
 
   return (
-    <>
+    <PageSpin spinning={loading}>
       <TableStyled columns={columnSchema!}>
         <div className="table">
           <div className="t-head">
@@ -144,9 +139,8 @@ const Table = <TData extends object>({
             ))}
           </div>
           <div className={`t-body ${withPagination ? "pagination-shown" : ""}`}>
-            {!loading ? (
-              data.length > 0 ? (
-                table.getRowModel().rows.map((row) => {
+            {data.length > 0
+              ? table.getRowModel().rows.map((row) => {
                   return (
                     <div key={row.id} className="t-row">
                       {row.getVisibleCells().map((cell) => {
@@ -162,15 +156,9 @@ const Table = <TData extends object>({
                     </div>
                   );
                 })
-              ) : (
-                emptyContainer()
-              )
-            ) : (
-              <LoaderContainer>
-                <Loader />
-              </LoaderContainer>
-            )}
-            {}
+              : (
+                <Empty />
+              )}
           </div>
         </div>
       </TableStyled>
@@ -192,7 +180,7 @@ const Table = <TData extends object>({
           />
         </PaginationContainer>
       ) : null}
-    </>
+    </PageSpin>
   );
 };
 

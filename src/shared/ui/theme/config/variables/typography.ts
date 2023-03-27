@@ -4,7 +4,7 @@ const typography = {
     Montserrat: 'Montserrat, sans-serif',
     Avenir: "Avenir, sans-serif",
     Mulish: "Mulish, sans-serif",
-    RedHatDisplay: "Red Hat Display, sans-serif",
+    RedHatDisplay: "DM Sans, sans-serif",
   },
   fontSize: {
     xs: '12px',
