@@ -18,8 +18,10 @@ import {
   TableContainer,
 } from "./product-categories.styles";
 import { Categories, Category } from "shared/types";
+import { useNavigate } from "react-router-dom";
 
 const ProductCategories: React.FC = () => {
+  const navigate = useNavigate();
   const countPageRef = useRef<number>(0);
   const [deleteRow, setDeleteRow] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -56,6 +58,7 @@ const ProductCategories: React.FC = () => {
 
   const getCategories = async (page: number = 0, query?: string) => {
     countPageRef.current = page;
+    setLoading(true);
     const { from, to } = usePagination(page, pageDepth);
 
     try {
@@ -108,7 +111,9 @@ const ProductCategories: React.FC = () => {
               size="small"
               variant="text"
               onlyIcon
-              onClick={() => console.log(row.original.id)}
+              onClick={() => {
+                navigate(`${row.original.id}/edit`);
+              }}
             />
             <Button
               prefix={<Icon name="delete" />}

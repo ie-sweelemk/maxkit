@@ -48,21 +48,6 @@ export const TableStyled = styled.div`
   }
 `;
 
-export const Empty = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: ${({ theme }) => theme.spacing.xxl};
-  height: 150px;
-`;
-
-export const LoaderContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 150px;
-`;
-
 export const PaginationContainer = styled.div`
   display: flex;
   align-items: center;
